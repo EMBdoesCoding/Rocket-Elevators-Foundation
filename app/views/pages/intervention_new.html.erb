@@ -264,16 +264,16 @@
 								<div class="">
 							<div class="row no-gutters wow slideInUp" data-wow-duration="1s">
 								<div class="col-md-12 home-form">
-									<%= form_tag(intervention_path, method: "post", class: "form-inline", remote: true) do %>
-									<%= select_tag "customer", options_from_collection_for_select(Customer.all, "id", "company_name"), prompt: "Customer", :required => true , class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
-									<%= select_tag "building", options_from_collection_for_select(Building.all, "id", "building_administrator_name"), :required => true , prompt: "Building", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
-									<%= select_tag "battery", options_from_collection_for_select(Battery.all, "id", "status"), prompt: "Battery", :required => true , class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
-									<%= select_tag "column", options_from_collection_for_select(Column.all, "id", "status"), prompt: "Column", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
-									<%= select_tag "elevator", options_from_collection_for_select(Elevator.all, "id", "status"), prompt: "Elevator", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
-									<%= select_tag "employee", options_from_collection_for_select(Employee.all, "id", "first_name"), prompt: "Employee", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
-									Report:<%= text_area "report", :report, size: "80x5", :required => true %>
-									<%= submit_tag("Create", class: "btn btn-primary") %>
-								<% end %>
+									<%= form_tag(intervention_path, method: "post", class: "form-inline") do %>
+										<%= select_tag "customer", options_from_collection_for_select(Customer.all, "id", "company_name"), prompt: "Customer", :required => true , class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
+										<%= select_tag "building", options_from_collection_for_select(Building.all, "id", "building_administrator_name"), :required => true , prompt: "Building", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
+										<%= select_tag "battery", options_from_collection_for_select(Battery.all, "id", "status"), prompt: "Battery", :required => true , class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
+										<%= select_tag "column", options_from_collection_for_select(Column.all, "id", "status"), prompt: "Column", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
+										<%= select_tag "elevator", options_from_collection_for_select(Elevator.all, "id", "status"), prompt: "Elevator", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
+										<%= select_tag "employee", options_from_collection_for_select(Employee.all, "id", "first_name"), prompt: "Employee", class: "custom-select mb-2 mr-sm-0 mb-sm-2" %>
+										Report:<%= text_area "report", :report, size: "80x5", :required => true %>
+										<%= submit_tag("Create", class: "btn btn-primary") %>
+									<% end %>
 								</div>
 							</div>
 							<%# <form action="/quote" method="post" class="text-center">
