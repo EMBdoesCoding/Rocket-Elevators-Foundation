@@ -22,10 +22,7 @@ class InterventionsController < ApplicationController
         priority: 1,
         "email": @intervention.author.email,
         "description":
-        "An intervention has been requested by " + @intervention.author.first_name + " from the customer " + @intervention.customer.company_name + " at building address number " + 
-        @intervention.building.address_id.to_s + ", battery id number " + @intervention.battery.id.to_s  + (!@intervention.column.nil? ? ", column id number " + @intervention.column.id.to_s : "")
-         + (!@intervention.elevator.nil? ? ", and elevator id number " + @intervention.elevator.id.to_s : "") + ". The employee assigned to the task is " + 
-         (!@intervention.employee.nil? ? @intervention.employee.first_name : "<UNASSIGNED>") + ". Thanks!",
+        "An intervention has been requested by " + @intervention.author.first_name + " from the customer " + @intervention.customer.company_name + " at building address number " + @intervention.building.address_id.to_s + ", battery id number " + @intervention.battery.id.to_s  + (!@intervention.column.nil? ? ", column id number " + @intervention.column.id.to_s : "") + (!@intervention.elevator.nil? ? ", and elevator id number " + @intervention.elevator.id.to_s : "") + ". The employee assigned to the task is " + (!@intervention.employee.nil? ? @intervention.employee.first_name : "<UNASSIGNED>") + ". Thanks!",
         "type": "Incident",
         "subject": @intervention.report,
     }.to_json
@@ -41,7 +38,8 @@ class InterventionsController < ApplicationController
       puts "Response Code: #{exception.response.code} Response Body: #{exception.response.body} "
     end
 
-    render :js => "window.location = '/intervention'"
+    # render :js => "window.location = '/intervention'"
+    redirect_back(fallback_location: root_path)
   end
 
   def get_buildings_by_customer
